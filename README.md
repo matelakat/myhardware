@@ -60,3 +60,56 @@ Testing:
     [root@alarmpi ~]# smartctl -t short /dev/sda
     [root@alarmpi ~]# smartctl -H /dev/sda
     SMART overall-health self-assessment test result: PASSED
+
+### Seagate Backup Plus Desktop 1
+
+Info:
+
+    root@plugged:~# smartctl -i /dev/sdc -d sat
+    smartctl 5.40 2010-07-12 r3124 [armv5tel-unknown-linux-gnueabi] (local build)
+    Copyright (C) 2002-10 by Bruce Allen, http://smartmontools.sourceforge.net
+
+    === START OF INFORMATION SECTION ===
+    Device Model:     ST2000DM001-9YN164
+    Serial Number:    W1E2JW11
+    Firmware Version: CC9F
+    User Capacity:    2,000,398,934,016 bytes
+    Device is:        Not in smartctl database [for details use: -P showall]
+    ATA Version is:   8
+    ATA Standard is:  ATA-8-ACS revision 4
+    Local Time is:    Sat Apr  6 21:04:55 2013 UTC
+    SMART support is: Available - device has SMART capability.
+    SMART support is: Enabled
+
+Testing:
+
+    # badblocks -b 1048576 -w -o badblocks.W1E2JW11 -s -v /dev/sdc
+
+(Still running)
+
+
+### Seagate Backup Plus Desktop 2
+
+Info:
+
+    root@plugged:~# smartctl -i /dev/sdd -d sat
+    smartctl 5.40 2010-07-12 r3124 [armv5tel-unknown-linux-gnueabi] (local build)
+    Copyright (C) 2002-10 by Bruce Allen, http://smartmontools.sourceforge.net
+
+    === START OF INFORMATION SECTION ===
+    Device Model:     ST2000DM001-9YN164
+    Serial Number:    W1E2GMMM
+    Firmware Version: CC9F
+    User Capacity:    2,000,398,934,016 bytes
+    Device is:        Not in smartctl database [for details use: -P showall]
+    ATA Version is:   8
+    ATA Standard is:  ATA-8-ACS revision 4
+    Local Time is:    Sat Apr  6 21:05:24 2013 UTC
+    SMART support is: Available - device has SMART capability.
+    SMART support is: Enabled
+
+Testing:
+
+    # badblocks -b 1048576 -w -o badblocks.W1E2GMMM -s -v /dev/sdd
+
+(Still running)
