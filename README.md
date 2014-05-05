@@ -180,25 +180,20 @@ Smart:
     smartctl 5.41 2011-06-09 r3365 [x86_64-linux-3.2.0-32-generic] (local build)
     Copyright (C) 2002-11 by Bruce Allen, http://smartmontools.sourceforge.net
 
-    === START OF INFORMATION SECTION ===
-    Model Family:     Fujitsu MJA BH
-    Device Model:     FUJITSU MJA2320BH G2
-    Serial Number:    K95DTA32DE3K
-    LU WWN Device Id: 5 00000e 0447a185e
-    Firmware Version: 0084001C
-    User Capacity:    320,072,933,376 bytes [320 GB]
-    Sector Size:      512 bytes logical/physical
-    Device is:        In smartctl database [for details use: -P show]
-    ATA Version is:   8
-    ATA Standard is:  ATA-8-ACS revision 3f
-    Local Time is:    Mon May  5 07:57:06 2014 BST
-    SMART support is: Available - device has SMART capability.
-    SMART support is: Enabled
-
-Detailed smart
+smart
 
     sudo smartctl -a /dev/disk/by-id/scsi-SATA_ST320LT023-1AF1_W0Q27J2N | grep -ie uncorrect -ie reallocated -ie pending
     5 Reallocated_Sector_Ct   0x0033   100   100   036    Pre-fail  Always       -       0
     187 Reported_Uncorrect      0x0032   100   100   000    Old_age   Always       -       0
     197 Current_Pending_Sector  0x0012   100   100   000    Old_age   Always       -       0
     198 Offline_Uncorrectable   0x0010   100   100   000    Old_age   Offline      -       0
+
+
+### Seagate 2.5 320 II HDD
+
+    sudo badblocks -b 1048576 -n -o badblocks.ST320LT0_23-1AF142_027AA8888888 -s -v /dev/disk/by-id/usb-ST320LT0_23-1AF142_027AA8888888-0\:0
+    Checking for bad blocks in non-destructive read-write mode
+    From block 0 to 305244
+    Checking for bad blocks (non-destructive read-write test)
+    Testing with random pattern:done
+    Pass completed, 0 bad blocks found. (0/0/0 errors)
