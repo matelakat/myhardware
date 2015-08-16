@@ -2,6 +2,20 @@
 
 A list of my hardware
 
+## Creating the new Array
+
+Used parted, created a partition with the size of 1740GiB. That gave me
+`/dev/sdb1`. I created an array on that:
+
+```
+sudo mdadm --create /dev/md0 --level 1 --raid-devices 2 /dev/sdb1 missing
+```
+
+Now created a filesystem on top on that:
+```
+sudo mkfs.ext4 /dev/md0
+```
+
 ## Hard Drives
 
 ### Samsung laptop HDD 120
